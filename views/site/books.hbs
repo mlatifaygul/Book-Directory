@@ -1,0 +1,25 @@
+{{> site-sBar}}
+{{> site-navS}}
+<ul class="cardList">
+
+    {{#each books}}
+    <li class="inCard">
+        <div class="bookList">
+            <div class="bookImg">
+                <a href="/book/{{_id}}"><img class="imgRes" src={{book_image}} alt="resim"></a>
+            </div>
+            <div class="bookContent">
+                <div class="title">
+                    <a href="/book/{{_id}}">{{title}}</a>
+                </div>
+                <div class="publisher">
+                    <a href="/book/{{_id}}">{{publisher}}</a>
+                </div>
+                <div class="author">
+                    <a href="/book/{{_id}}">{{author}}</a>
+                </div>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</ul>

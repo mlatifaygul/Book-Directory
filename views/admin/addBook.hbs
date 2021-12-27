@@ -1,0 +1,29 @@
+{{> site-nav}}
+<form action="/admin/addBook" method="POST" enctype="multipart/form-data">
+    <div class="container-form">
+        <table>
+            <th>
+            <td>
+                <label for="title">Kitap Adı:</label>
+                <input type="text" name="title" placeholder="Kitap Adı" required="required">
+
+            </td>
+            <td>
+                <label for="title">Yazar:</label>
+                <input type="text" name="author" placeholder="Yaza Adı">
+            </td>
+            <td>
+                <label for="title">Yayın Evi:</label>
+                <input type="text" name="publisher" placeholder="Yayın Evi Adı">
+            </td>
+            <td>
+                <label for="title">Resim :</label>
+                <input type="file" name="book_image">
+            </td>
+            <td>
+                <button type="submit">Kitap Ekle</button>
+            </td>
+            </th>
+        </table>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+<div class="nav-box" id="navbar">
+    <ul class="in-nav ">
+
+        <li class="nav-element ">
+            <a href="/">Ana Sayfa</a>
+        </li>
+
+        <li class="nav-element">
+            <a href="/books">Kitaplar</a>
+        </li>
+
+        <li class="nav-element">
+            <a href="/admin">Admin</a>
+        </li>
+
+        <li class="nav-element">
+            <a href="/admin/addBook">Add Book</a>
+        </li>
+
+    </ul>
+</div>
+<script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+        } else {
+            document.getElementById("navbar").style.top = "-50px";
+        }
+        prevScrollpos = currentScrollPos;
+    };
+</script>
