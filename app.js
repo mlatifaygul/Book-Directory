@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const port = 3050;
 const hostname = "localhost";
 const {
   allowInsecurePrototypeAccess,
@@ -91,7 +90,7 @@ app.use(methodOverride("_method"));
 //   res.sendFile("./view/index.html", { root: __dirname });
 // });
 
-const index = require("./routes/index");
+const index = require("./routes/books");
 const admin = require("./routes/admin/index");
 const users = require("./routes/users");
 const books = require("./routes/books");
@@ -107,6 +106,6 @@ app.use("/book", singleBook);
 app.use("/admin", adminContent);
 app.use("/books", categories);
 
-app.listen(port, hostname, () => {
-  console.log(`http://${hostname}:${port} Adresine Bağlandı.`);
+app.listen(process.env.PORT, hostname, () => {
+  console.log(`http://${hostname}:${process.env.PORT} Adresine Bağlandı.`);
 });
