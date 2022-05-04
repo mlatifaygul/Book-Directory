@@ -1,21 +1,24 @@
 <div class="nav-box" id="navbar">
     <ul class="in-nav ">
 
-        <li class="nav-element ">
+        {{!-- <li class="nav-element ">
             <a href="/">Ana Sayfa</a>
-        </li>
+        </li> --}}
 
         <li class="nav-element">
             <a href="/books">Kitaplar</a>
         </li>
-
         <li class="nav-element">
-            <a href="/admin">Admin</a>
+            <a href="/books/categories">Kategoriler</a>
         </li>
-
+        {{#if displayLink}}
         <li class="nav-element">
-            <a href="/admin/addBook">Add Book</a>
+            <a href="/admin/addBook">Kitap Ekle</a>
         </li>
+        <li class="nav-element">
+            <a href="/admin/books">Admin</a>
+        </li>
+        {{/if}}
 
     </ul>
 </div>

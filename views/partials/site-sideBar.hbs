@@ -1,0 +1,19 @@
+        <aside class="side-books">
+            <div class="container-side">
+                <h1 style="font-size:1.5em; margin-top:2px">Son Eklenenler</h1>
+                <hr style="position: relative; width:100%">
+                <div class="soneklenen">
+                    {{#each (limit book 12)}}
+                    <div class="in-soneklenen">
+                        <div class="soneklenen-inbook">
+                            <a href="/book/{{_id}}"><img src={{book_image}} alt="" srcset=""></a>
+                        </div>
+                        <div class="soneklenen-content">
+                            <h3>{{title}}</h3><br>
+                            <p>{{author}}</p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </aside>

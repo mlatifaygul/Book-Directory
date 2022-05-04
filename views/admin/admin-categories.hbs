@@ -1,0 +1,56 @@
+<div class="container">
+    {{> site-nav}}
+    <div class="container-adminCat">
+        <div class="nav-admin">
+            <div class="navlink">
+                <a href="/admin/books">Kitaplar</a>
+            </div>
+            <div class="hr">
+            </div>
+            <div class="navlink">
+                <a href="/admin/categories">Kategoriler</a>
+            </div>
+        </div>
+        <div class="content-categories">
+            <div class="add-category">
+                <form action="/admin/categories" method="post" class="fAddBook" enctype="multipart/form-data">
+                    <input type="text" name="catName" placeholder="Kategori İsmi">
+                    <input type="file" name="cat_image">
+                    <button type="submit">Ekle</button>
+                </form>
+            </div>
+            <div class="listCategory">
+                <div class="catTable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Kategori İsmi</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each category}}
+
+                            <tr>
+                                <td colspan="2"><input type="text" name="catName" value={{catName}} size="30"
+                                        maxlength="30"></td>
+                                <td>
+                                    <form method="post" action="/admin/categories/{{id}}?_method=DELETE">
+                                        <button type="submit" class="sil">Sil</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/admin/categories/{{id}}?_method=PUT" method="post"></form>
+                                    <button type="submit" class="guncel">Güncelle</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

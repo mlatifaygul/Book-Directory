@@ -1,24 +1,32 @@
-<body>
+<div class="container">
     {{> site-nav}}
-    <ul class="cardList">
-        <li class="inCard">
-            <div class="bookList">
-                <div class="bookImg">
-                    <a href="#"><img src={{book.book_image}} alt="resim"></a>
+    <main class="container-booksS">
+        <ul class="cardListS">
+            <li class="inCardS">
+                <div class="bookListS">
+                    <div class="bookImg">
+                        <img src={{book.book_image}} alt="resim">
+                    </div>
+                    <div class="bookContentSing">
+                        <div class="title">
+                            <a>{{book.title}}</a>
+                        </div>
+                        <div class="publisher">
+                            <a>{{book.publisher}}</a>
+                        </div>
+                        <div class="author">
+                            <a>{{book.author}}</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="bookContent">
-                    <div class="title">
-                        <a class="aTitle" href="#">{{book.title}}</a>
-                    </div>
-                    <div class="publisher">
-                        <a class="aPublisher" href="#">{{book.publisher}}</a>
-                    </div>
-                    <div class="author">
-                        <a class="aAuthor" href="#">{{book.author}}</a>
-                    </div>
+            </li>
+            <div class="single-content">
+                <div class="text-content">
+                    <p>Kategori İsmi: {{book.category.catName}}</p>
+                    <p>Eklenme Tarihi: {{generateDate book.date 'MMM DD YYYY'}}</p>
                 </div>
-                <div class="price"></div>
             </div>
-        </li>
-    </ul>
-</body>
+        </ul>
+    </main>
+    {{>site-footer}}
+</div>

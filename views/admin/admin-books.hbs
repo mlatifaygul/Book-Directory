@@ -1,0 +1,55 @@
+<div class="container">
+    {{> site-nav}}
+    <div class="container-admin">
+        <div class="nav-admin">
+            <div class="navlink">
+                <a href="/admin/books">Kitaplar</a>
+            </div>
+            <div class="hr">
+            </div>
+            <div class="navlink">
+                <a href="/admin/categories">Kategoriler</a>
+            </div>
+        </div>
+        <div class="content-books">
+            <div class="admin-books">
+                <div class="search-admin">
+                    <form action="/admin/admin-categories" method="post" class="fAddBook">
+                        <input type="text" name="catName" placeholder="Kitap Ara">
+                        <button type="submit">ARA</button>
+                    </form>
+                </div>
+                <ul class="cardListA">
+                    {{#each (limit book 10)}}
+                    <div class="inCardA">
+                        <li>
+                            <div class="bookListA">
+                                <div class="bookImgA">
+                                    <img src={{book_image}} alt="resim">
+                                </div>
+                                <div class="bookContent">
+                                    <div class="title">
+                                        <a>{{title}}</a>
+                                    </div>
+                                    <div class="publisher">
+                                        <a>{{publisher}}</a>
+                                    </div>
+                                    <div class="author">
+                                        <a>{{author}}</a>
+                                    </div>
+                                </div>
+                                <div class="buttonList">
+                                    <form action="/admin/books/{{id}}?_method=DELETE" method="post">
+                                        <button type="submit" class="sil">Sil</button>
+                                    </form>
+                                    <a href="/admin/books/editBook/{{id}}"><button class="guncel">Düzenle</button></a>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

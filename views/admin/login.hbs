@@ -1,38 +1,30 @@
 <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
-        margin-top: 10%;
-
+        margin: 0;
+        padding: 0;
     }
 
-    * {
-        box-sizing: border-box;
-    }
 
     /* Full-width input fields */
-    input[type="text"],
-    input[type="password"] {
+    input[type=text],
+    input[type=password] {
+        font-family: Arial, Helvetica, sans-serif;
         width: 100%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
+        padding: 12px 20px;
+        margin: 8px 0;
         display: inline-block;
-        border: none;
-        background: #f1f1f1;
-    }
-
-    /* Add a background color when the inputs get focus */
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-        background-color: #ddd;
-        outline: none;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
     }
 
     /* Set a style for all buttons */
     button {
-        background-color: #04aa6d;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #04AA6D;
         color: white;
-        padding: 14px 40px;
-        margin: 8px 4px;
+        padding: 14px 20px;
+        margin: 8px 0;
         border: none;
         cursor: pointer;
         width: 100%;
@@ -44,6 +36,101 @@
     }
 
     /* Extra styles for the cancel button */
+    .registerbtn {
+        position: relative;
+        width: auto;
+        padding: 10px 36px;
+        background-color: #1c3af8;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+    }
+
+
+    .containerA {
+        
+        padding: 16px;
+    }
+
+    .containerAa {
+        
+        padding: 16px;
+        display: flex;
+        position: relative;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: auto;
+    }
+    .containerA b ,h1{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+        .containerB b ,h1{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    span.psw {
+        float: left;
+        padding-top: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        
+        display: inline-block;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgb(255, 255, 255);
+        /* Black w/ opacity */
+        padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 50%;
+        /* Could be more or less, depending on screen size */
+    }
+
+
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+
+    }
+
+    span a {
+        color: rgb(40, 40, 243)
+    }
+
+
+    /*------------------------*/
+
     .cancelbtn {
         padding: 14px 20px;
         background-color: #f44336;
@@ -55,12 +142,12 @@
     }
 
     /* Add padding to container elements */
-    .container {
+    .containerB {
         padding: 16px;
     }
 
     /* The Modal (background) */
-    .modal {
+    .modal2 {
         display: none;
         /* Hidden by default */
         position: fixed;
@@ -72,19 +159,20 @@
         /* Full width */
         /* Full height */
         /* Enable scroll if needed */
-        background-color: #f5f5f580;
+        background-color: #e2d6d68a;
         padding: 0 auto;
         height: 100%;
+        padding-top: 60px;
 
     }
 
     /* Modal Content/Box */
-    .modal-content {
+    .modal-content2 {
         background-color: #fefefe;
         margin: 5% auto 5% auto;
         /* 5% from the top, 15% from the bottom and centered */
         border: 1px solid rgb(136, 136, 136);
-        width: 40%;
+        width: 50%;
 
         /* Could be more or less, depending on screen size */
     }
@@ -98,7 +186,7 @@
     /* The Close Button (x) */
     .close {
         position: absolute;
-        right: 31%;
+        right: 26%;
         top: auto;
         font-size: 40px;
         font-weight: bold;
@@ -138,33 +226,80 @@
             width: 100%;
         }
     }
+
+    .messageL {
+        position: relative;
+        width: 300px;
+        height: 25px;
+        margin: auto;
+        margin-top: 80px;
+    }
+
+    .messageL p {
+        font-size: 18px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background-color: rgba(10, 195, 10, 0.764);
+        color: white;
+        width: 300px;
+        height: 25px;
+        text-align: center;
+    }
 </style>
-
+<div class="container">
     {{> site-nav}}
-    <h2>Modal Signup Form</h2>
-
-    <button onclick="document.getElementById('id01').style.display='block'" style="width: auto">
-        Sign Up
-    </button>
-
+    <div class="messageL">
+        {{#if sessionFlash.message}}
+        <div class="div">
+            <p class="{{sessionFlash.type}}">{{sessionFlash.message}}</p>
+        </div>
+        {{/if}}
+    </div>
     <div id="id01" class="modal">
 
-        <form class="modal-content" action="/action_page.php">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+        <form class="modal-content animate" action="/users/login" method="post">
+            {{!-- <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+            </div> --}}
+
+            <div class="containerA">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required="required">
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required="required">
+
+                <button type="submit">Login</button>
+
+            </div>
+
+            <div class="containerAa" style="background-color:#f1f1f100">
+                <span class="psw">Forgot <a href="#">password?</a></span>
+                <button type="button" class="registerbtn"
+                    onclick="document.getElementById('id02').style.display='block'"
+                    style="width: auto">Register</button>
+            </div>
+            
+        </form>
+
+    </div>
+
+    <div id="id02" class="modal2">
+
+        <form class="modal-content2" action="/users/register" method="post">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close"
                 title="Close Modal">&times;</span>
-            <div class="container">
+            <div class="containerB">
                 <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account.</p>
                 <hr />
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required />
+                <input type="text" placeholder="name surname" name="name" required="required" />
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required="required" />
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required />
-
-                <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required />
-
+                <input type="password" placeholder="Enter Password" name="psw" required="required" />
 
                 <p>
                     By creating an account you agree to our
@@ -177,15 +312,17 @@
             </div>
         </form>
     </div>
+</div>
+</div>
 
-    <script>
-        // Get the modal
-        var modal = document.getElementById("id01");
+<script>
+    // Get the modal
+    var modal = document.getElementById("id02");
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        };
-    </script>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+</script>

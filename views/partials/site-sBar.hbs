@@ -1,20 +1,40 @@
-<div class="container-sBar">
-    <div class="rowBar">
-        <div class="search-container">
+<div class="header-sBar">
+    <div class="container-sBar">
+        <div class="iconBox">
+            <a href="/books"><img src="/img/Icon/kitapLogo.svg" width="178" height="48"></a>
+        </div>
+        <div class="rowBar">
             <form action="/book">
-                <input type="search" name="search" class="search" placeholder="Kitap Arama...">
-                <button type="submit" class="fa fa-search "></button>
+                <div class="search-container">
+                    <input type="search" name="search" class="search" placeholder="Kitap Arama...">
+                    <button type="submit" class="buttonS">ARA</button>
+                </div>
+
             </form>
         </div>
+        {{#unless displayLink}}
         <div class="loginDrop">
             <div class="loginBar">
                 <button onclick="myFunction()" class="dropbtn">Giriş Yap</button>
             </div>
             <div id="myDropdown" class="dropdown-content">
                 <a href="/users/login">Login</a>
-                <a href="/users/login">Register</a>
+                <a href="/users/register">Register</a>
             </div>
         </div>
+        {{/unless}}
+        {{#if displayLink}}
+        <div class="loginDrop">
+            <div class="loginBar">
+                <button onclick="myFunction()" class="dropbtn">Hesabım</button>
+            </div>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="/users/profil">Profil</a>
+                <a href="/users/logout">Çıkış Yap</a>
+            </div>
+        </div>
+        {{/if}}
+
     </div>
 </div>
 

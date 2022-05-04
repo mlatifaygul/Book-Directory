@@ -5,6 +5,7 @@ const PostSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
   publisher: { type: String, required: true },
+  category: { type: Schema.Types.ObjectId, ref: "categories" },
   book_image: { type: String, require: true },
   date: { type: Date, default: Date.now, require: true },
   // book_image: { type: String },

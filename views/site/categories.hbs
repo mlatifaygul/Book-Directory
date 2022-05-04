@@ -1,0 +1,21 @@
+<div class="container">
+    {{> site-sBar}}
+    {{> site-navS}}
+    <div class="container-categories">
+        <div class="categories-List">
+            {{#each categories}}
+            <div class="single-category">
+                <div class="catImg">
+                    <a href="#"><img class="imgRes" src="{{cat_image}}" alt="resim"></a>
+                    <div class="catNames">
+                        <a href="#">
+                            <p>{{catName}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{>site-footerS}}
+</div>
